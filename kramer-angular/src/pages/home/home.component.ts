@@ -1,0 +1,101 @@
+import {Component, inject, signal} from '@angular/core';
+import {MeasurementCardComponent} from '../../shared/components/measurement-card/measurement-card.component';
+import {ActionCardComponent} from '../../shared/components/action-card/action-card.component';
+import {SidebarStore} from '../../core/store/sidebar.store';
+import {SidebarComponent} from '../../shared/components/sidebar/sidebar.component';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [
+    MeasurementCardComponent,
+    ActionCardComponent,
+    SidebarComponent
+  ],
+  template: `
+    <div class="flex w-screen h-full justify-center">
+      <div class="flex flex-col">
+        <div class="flex">
+          <app-measurement-card (selected)="selectMeasurement($event)"
+                                [measurement]="listOfMeasurements()[0]"></app-measurement-card>
+          <app-measurement-card (selected)="selectMeasurement($event)"
+                                [measurement]="listOfMeasurements()[1]"></app-measurement-card>
+        </div>
+        <div class="flex">
+          <app-measurement-card (selected)="selectMeasurement($event)"
+                                [measurement]="listOfMeasurements()[2]"></app-measurement-card>
+          <app-measurement-card (selected)="selectMeasurement($event)"
+                                [measurement]="listOfMeasurements()[3]"></app-measurement-card>
+        </div>
+        <div class="flex">
+          <app-measurement-card (selected)="selectMeasurement($event)"
+                                [measurement]="listOfMeasurements()[4]"></app-measurement-card>
+          <app-measurement-card></app-measurement-card>
+        </div>
+      </div>
+      @if (sidebarStore.sidebarOpen()) {
+        <div>
+          <app-sidebar></app-sidebar>
+        </div>
+      } @else {
+        <div class="flex flex-col">
+          <app-action-card></app-action-card>
+          <app-action-card></app-action-card>
+          <app-action-card></app-action-card>
+        </div>
+      }
+
+    </div>
+  `,
+  styleUrl: './home.component.scss'
+})
+export class HomeComponent {
+  sidebarStore = inject(SidebarStore)
+  listOfMeasurements = signal([
+    {
+      id: '1',
+      name: 'Weight',
+      unit: 'g',
+      checked: false
+    },
+    {
+      id: '2',
+      name: 'Thickness',
+      unit: 'mm',
+      checked: false
+    },
+    {
+      id: '3',
+      name: 'Width',
+      unit: 'mm',
+      checked: false
+    },
+    {
+      id: '4',
+      name: 'Height',
+      unit: 'mm',
+      checked: false
+    },
+    {
+      id: '5',
+      name: 'Hardness',
+      unit: 'N',
+      checked: false
+    }
+  ])
+
+  selectMeasurement(id: string) {
+    this.listOfMeasurements.update((data) => {
+      return data.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            checked: !item.checked
+          }
+        }
+
+        return item;
+      })
+    })
+  }
+}
