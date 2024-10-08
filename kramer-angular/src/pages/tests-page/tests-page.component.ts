@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TestsTableComponent} from './components/tests-table/tests-table.component';
 
 @Component({
   selector: 'app-tests-page',
   standalone: true,
-  imports: [],
+  imports: [
+    TestsTableComponent
+  ],
   template: `
-    <p>
-      tests-page works!
-    </p>
+    <app-tests-table></app-tests-table>
   `,
   styleUrl: './tests-page.component.scss'
 })
