@@ -3,6 +3,7 @@ import {MeasurementCardComponent} from '../../shared/components/measurement-card
 import {ActionCardComponent} from '../../shared/components/action-card/action-card.component';
 import {SidebarStore} from '../../core/store/sidebar.store';
 import {SidebarComponent} from '../../shared/components/sidebar/sidebar.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import {SidebarComponent} from '../../shared/components/sidebar/sidebar.componen
   imports: [
     MeasurementCardComponent,
     ActionCardComponent,
-    SidebarComponent
+    SidebarComponent,
+    RouterLink
   ],
   template: `
     <div class="flex w-screen h-full justify-center">
@@ -39,9 +41,9 @@ import {SidebarComponent} from '../../shared/components/sidebar/sidebar.componen
         </div>
       } @else {
         <div class="flex flex-col">
-          <app-action-card></app-action-card>
-          <app-action-card></app-action-card>
-          <app-action-card></app-action-card>
+          <app-action-card title="Start quick test"></app-action-card>
+          <app-action-card title="Start direct test"></app-action-card>
+          <app-action-card title="Start product test" routerLink="products"></app-action-card>
         </div>
       }
 

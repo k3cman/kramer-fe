@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {StartIconComponent} from '../../icons/start-icon.component';
 
 @Component({
@@ -10,7 +10,7 @@ import {StartIconComponent} from '../../icons/start-icon.component';
   template: `
     <div class="w-[260px] h-[120px] border-2 rounded border-gray-300 m-[2px] flex flex-col">
       <div class="w-full h-[30px] pt-0.5 bg-kramer text-white uppercase text-center text-sm">
-        Start quick test
+        {{ title() }}
       </div>
       <div class="flex items-center justify-center h-full">
         <app-start-icon></app-start-icon>
@@ -19,4 +19,5 @@ import {StartIconComponent} from '../../icons/start-icon.component';
   `,
 })
 export class ActionCardComponent {
+  title = input.required<string>()
 }
