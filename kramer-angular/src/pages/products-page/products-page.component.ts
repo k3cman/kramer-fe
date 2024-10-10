@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ProductsTableComponent} from './components/products-table.component';
 import {ProductFilterComponent} from './components/product-filter.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products-page',
@@ -15,12 +16,16 @@ import {ProductFilterComponent} from './components/product-filter.component';
         <app-products-table></app-products-table>
       </div>
       <div class="w-1/3">
-        <app-product-filter></app-product-filter>
+        <app-product-filter (runTest)="runTest()"></app-product-filter>
       </div>
     </div>
   `,
   styleUrl: './products-page.component.scss'
 })
 export class ProductsPageComponent {
+  private router = inject(Router)
 
+  runTest() {
+    this.router.navigate(['/run-test'])
+  }
 }

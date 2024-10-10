@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component, inject, output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {ReactiveFormsModule, UntypedFormBuilder} from '@angular/forms';
+import {RouterLink} from '@angular/router';
 
 @Component({
   standalone: true,
@@ -21,15 +22,19 @@ import {ReactiveFormsModule, UntypedFormBuilder} from '@angular/forms';
         </form>
       </div>
       <div class="flex h-[75px] w-full">
-        <div class="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" (click)="clear()">X</div>
-        <div class="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" (click)="submitFilter()">OK
+        <div class="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" routerLink="/">
+          X
+        </div>
+        <div class="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
+             routerLink="/run-test/calibration">OK
         </div>
       </div>
     </div>
   `,
   selector: 'app-product-filter',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ]
 })
 export class ProductFilterComponent {
@@ -38,13 +43,5 @@ export class ProductFilterComponent {
     number: '',
     name: ''
   })
-  readonly sumbitFilter = output()
 
-  clear() {
-    this.form.reset()
-  }
-
-  submitFilter() {
-    this.sumbitFilter.emit(this.form.getRawValue())
-  }
 }

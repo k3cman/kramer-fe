@@ -1,18 +1,10 @@
 import {Component, signal} from '@angular/core';
-import {MeasurementCardComponent} from '../../shared/components/measurement-card/measurement-card.component';
-import {ActionCardComponent} from '../../shared/components/action-card/action-card.component';
-import {SidebarComponent} from '../../shared/components/sidebar/sidebar.component';
+import {ActionCardComponent} from '../../../../shared/components/action-card/action-card.component';
+import {MeasurementCardComponent} from '../../../../shared/components/measurement-card/measurement-card.component';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-home',
   standalone: true,
-  imports: [
-    MeasurementCardComponent,
-    ActionCardComponent,
-    SidebarComponent,
-    RouterLink
-  ],
   template: `
     <div class="flex w-screen h-full justify-center">
       <div class="flex flex-col">
@@ -34,16 +26,39 @@ import {RouterLink} from '@angular/router';
           <app-measurement-card></app-measurement-card>
         </div>
       </div>
-      <div class="flex flex-col">
-        <app-action-card title="Start quick test"></app-action-card>
-        <app-action-card title="Start direct test"></app-action-card>
-        <app-action-card title="Start product test" routerLink="products"></app-action-card>
+      <div class="flex flex-col w-1/3 mb-2">
+        <div class="flex-1 w-full border-2 border-red-500 mb-2 rounded mt-2">
+          <div class="bg-red-500 text-white w-full h-[30px]">Calibration incomplete</div>
+          <p>
+            The following calibration presets are defined but either never performed or already expired
+
+
+          </p>
+          <p>
+            Preset: <strong>HardCal</strong>
+          </p>
+          <p> Do you want to continue anyway?</p>
+        </div>
+        <div class="flex h-[75px] w-full">
+          <div class="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" routerLink="/">
+            X
+          </div>
+          <div class="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
+               routerLink="../batch">OK
+          </div>
+        </div>
       </div>
     </div>
   `,
-  styleUrl: './home.component.scss'
+  selector: 'page-calibration',
+  imports: [
+    ActionCardComponent,
+    MeasurementCardComponent,
+    RouterLink
+  ]
 })
-export class HomeComponent {
+export class CalibrationIncomplete {
+
   listOfMeasurements = signal([
     {
       id: '1',
