@@ -5,6 +5,7 @@ import {ProductsPageComponent} from '../pages/products-page/products-page.compon
 import {RunTestPage} from '../pages/run-test/run-test.page';
 import {CalibrationIncomplete} from '../pages/run-test/pages/calibration/calibration-incomplete.component';
 import {BatchPage} from '../pages/run-test/pages/batch/batch.page';
+import {ContainerPage} from '../pages/run-test/pages/container/container.page';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
       {
         path: 'batch',
         component: BatchPage
+      },
+      {
+        path: 'container',
+        component: ContainerPage
       }
     ]
   }

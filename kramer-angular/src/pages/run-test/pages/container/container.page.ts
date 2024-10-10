@@ -2,25 +2,23 @@ import {Component} from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  standalone: true,
+  selector: 'page-container',
   template: `
     <div class="w-full h-full flex p-2">
       <div class="w-2/3 border-2 rounded border-gray-400">
-        <div class="bg-kramer h-[30px] w-full">Enter batch number</div>
+        <div class="bg-kramer h-[30px] w-full">Enter container number</div>
         <p>Product:</p>
         <p class="ml-2">PrNUm1</p>
         <p class="ml-4">ProductTest1</p>
 
         <div class="border border-gray-400 m-1.5 flex flex-col">
           <div class="h-[40px] w-full border-b border-gray-400">[New Entry]</div>
-          <div class="h-[40px] w-full border-b border-gray-400">TestBatch1</div>
-          <div class="h-[40px] w-full border-b border-gray-400">TestBatch2</div>
         </div>
       </div>
       <div class="w-1/3 pl-1.5 flex-1 flex flex-col">
         <div class="border-gray-400 border-2 flex-1 mb-1 5 rounded">
           <div class="h-[30px] w-full bg-gray-400">Info</div>
-          <p>Select batch</p>
+          <p>Select container number</p>
         </div>
         <!--        <div class="border-kramer border-2 flex-1 mb-1.5 rounded">-->
         <!--          <div class="h-[30px] w-full text-white bg-kramer">Add container number</div>-->
@@ -37,10 +35,10 @@ import {RouterLink} from '@angular/router';
       </div>
     </div>
   `,
-  selector: 'page-batch',
   imports: [
     RouterLink
-  ]
+  ],
+  standalone: true
 })
-export class BatchPage {
+export class ContainerPage {
 }
