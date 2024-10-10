@@ -6,6 +6,7 @@ import {RunTestPage} from '../pages/run-test/run-test.page';
 import {CalibrationIncomplete} from '../pages/run-test/pages/calibration/calibration-incomplete.component';
 import {BatchPage} from '../pages/run-test/pages/batch/batch.page';
 import {ContainerPage} from '../pages/run-test/pages/container/container.page';
+import {NewContainerPage} from '../pages/new-container/new-container.page';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
       {
         path: 'container',
         component: ContainerPage
+      },
+      {
+        path: 'new-container',
+        component: NewContainerPage
       }
     ]
   }

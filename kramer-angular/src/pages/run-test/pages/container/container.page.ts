@@ -12,7 +12,7 @@ import {RouterLink} from '@angular/router';
         <p class="ml-4">ProductTest1</p>
 
         <div class="border border-gray-400 m-1.5 flex flex-col">
-          <div class="h-[40px] w-full border-b border-gray-400">[New Entry]</div>
+          <div class="h-[40px] w-full border-b border-gray-400" routerLink="../new-container">[New Entry]</div>
         </div>
       </div>
       <div class="w-1/3 pl-1.5 flex-1 flex flex-col">
