@@ -35,18 +35,11 @@ import {RouterLink} from '@angular/router';
           <app-measurement-card></app-measurement-card>
         </div>
       </div>
-      @if (sidebarStore.sidebarOpen()) {
-        <div>
-          <app-sidebar></app-sidebar>
-        </div>
-      } @else {
-        <div class="flex flex-col">
-          <app-action-card title="Start quick test"></app-action-card>
-          <app-action-card title="Start direct test"></app-action-card>
-          <app-action-card title="Start product test" routerLink="products"></app-action-card>
-        </div>
-      }
-
+      <div class="flex flex-col">
+        <app-action-card title="Start quick test"></app-action-card>
+        <app-action-card title="Start direct test"></app-action-card>
+        <app-action-card title="Start product test" routerLink="products"></app-action-card>
+      </div>
     </div>
   `,
   styleUrl: './home.component.scss'

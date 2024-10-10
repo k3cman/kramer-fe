@@ -10,7 +10,7 @@ import {RouterLink} from '@angular/router';
     RouterLink
   ],
   template: `
-    <div class="flex flex-col justify-between h-full pb-1.5">
+    <div class="flex flex-col justify-between h-full pb-1.5 bg-white">
       <div class="w-[260px] h-[75px] text-white rounded bg-kramer m-[2px] flex items-center p-8" [routerLink]="'tests'">
         <app-custom-icon></app-custom-icon>
         <span class="ml-2 uppercase text-2xl">Tests</span>
