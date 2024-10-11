@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, output} from '@angular/core';
 import {ReactiveFormsModule, UntypedFormBuilder} from '@angular/forms';
 import {RouterLink} from '@angular/router';
+import {debounceTime} from 'rxjs';
 
 @Component({
   standalone: true,
@@ -13,11 +14,11 @@ import {RouterLink} from '@angular/router';
         <form [formGroup]="form" class="flex flex-col mx-1.5">
           <div class="flex flex-col">
             <label>Product number:</label>
-            <input class="border border-gray-400 rounded" type="text"/>
+            <input formControlName="productNo" class="border border-gray-400 rounded" type="text"/>
           </div>
           <div class="flex flex-col">
             <label>Product name:</label>
-            <input class="border border-gray-400 rounded" type="text"/>
+            <input formControlName="productName" class="border border-gray-400 rounded" type="text"/>
           </div>
         </form>
       </div>
@@ -40,8 +41,17 @@ import {RouterLink} from '@angular/router';
 export class ProductFilterComponent {
   private _fb = inject(UntypedFormBuilder)
   public form = this._fb.group({
-    number: '',
-    name: ''
+    productNo: '',
+    productName: ''
   })
+  filter = output<any>()
+
+  constructor() {
+    this.form.valueChanges.pipe(
+      debounceTime(500)
+    ).subscribe(data => {
+      this.filter.emit(data)
+    })
+  }
 
 }

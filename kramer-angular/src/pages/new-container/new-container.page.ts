@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, inject, ViewEncapsulation} from '@angular/core';
 import Keyboard from "simple-keyboard";
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {ProductTestStore} from '../../core/store/product-test.store';
 
 @Component({
   standalone: true,
@@ -31,7 +32,7 @@ import {RouterLink} from '@angular/router';
         <div class="h-full flex-1 bg-kramer-light"></div>
         <div class="h-full flex-1 bg-kramer flex items-center justify-center text-white" routerLink="../container">X
         </div>
-        <div class="h-full flex-1 bg-kramer  flex items-center justify-center text-white" routerLink="../container">OK
+        <div class="h-full flex-1 bg-kramer  flex items-center justify-center text-white" (click)="createContainer()">OK
         </div>
       </div>
     </div>
@@ -39,6 +40,8 @@ import {RouterLink} from '@angular/router';
   `
 })
 export class NewContainerPage implements AfterViewInit {
+  readonly productTestStore = inject(ProductTestStore)
+  readonly router = inject(Router)
   value = "";
   keyboard!: Keyboard;
 
@@ -51,11 +54,9 @@ export class NewContainerPage implements AfterViewInit {
 
   onChange = (input: string) => {
     this.value = input;
-    console.log("Input changed", input);
   };
 
   onKeyPress = (button: string) => {
-    console.log("Button pressed", button);
 
     /**
      * If you want to handle the shift and caps lock buttons
@@ -75,4 +76,9 @@ export class NewContainerPage implements AfterViewInit {
       layoutName: shiftToggle
     });
   };
+
+  createContainer() {
+    this.productTestStore.addContainer(this.value)
+    this.router.navigate(['run-test', 'container'])
+  }
 }
