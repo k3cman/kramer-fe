@@ -8,6 +8,7 @@ import {BatchPage} from '../pages/run-test/pages/batch/batch.page';
 import {ContainerPage} from '../pages/run-test/pages/container/container.page';
 import {NewContainerPage} from '../pages/new-container/new-container.page';
 import {SetNumberOfTestsPage} from '../pages/set-number-of-tests/set-number-of-tests.page';
+import {TestInProgressPage} from '../pages/test-in-progress/test-in-progress.page';
 
 export const routes: Routes = [
   {
@@ -45,6 +46,10 @@ export const routes: Routes = [
       {
         path: 'set-number-of-tests',
         component: SetNumberOfTestsPage
+      },
+      {
+        path: 'test-in-progress',
+        component: TestInProgressPage
       }
     ]
   }

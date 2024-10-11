@@ -36,7 +36,7 @@ import {RouterLink} from '@angular/router';
             X
           </div>
           <div class="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
-               routerLink="/run-test/calibration">OK
+               routerLink="/run-test/test-in-progress">OK
           </div>
         </div>
       </div>

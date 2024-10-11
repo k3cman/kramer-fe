@@ -19,11 +19,11 @@ import {NgClass, NgIf} from '@angular/common';
           <span>0/0</span>
         </div>
         <span class="text-5xl" *ngIf="!editMode()">{{ measurement() ? '0,00' : '0/0' }}</span>
-        <div class="w-full h-full flex items-center justify-between">
+        <div class="w-full h-full flex items-center justify-between" *ngIf="editMode()">
           <div (click)="decrement()">
             <
           </div>
-          <div class="text-5xl" *ngIf="editMode()">{{ value() }}</div>
+          <div class="text-5xl">{{ value() }}</div>
           <div (click)="increment()">
             >
           </div>
