@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, inject, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, inject, signal, ViewEncapsulation} from '@angular/core';
 import Keyboard from "simple-keyboard";
 import {Router, RouterLink} from '@angular/router';
 import {ProductTestStore} from '../../core/store/product-test.store';
@@ -18,7 +18,7 @@ import {ProductTestStore} from '../../core/store/product-test.store';
           <div class="border-gray-400 border rounded flex-1">
             <input class="block w-full h-[30px] !border !border-gray-400 rounded" (input)="onInputChange($event)"
                    class="input"
-                   value={{value}}
+                   [value]="value()"
                    placeholder=""/>
           </div>
           <div class="ml-2 w-[30px] bg-gray-400 text-white flex items-center justify-center">X</div>
@@ -42,7 +42,7 @@ import {ProductTestStore} from '../../core/store/product-test.store';
 export class NewContainerPage implements AfterViewInit {
   readonly productTestStore = inject(ProductTestStore)
   readonly router = inject(Router)
-  value = "";
+  value = signal("");
   keyboard!: Keyboard;
 
   ngAfterViewInit() {
@@ -53,7 +53,7 @@ export class NewContainerPage implements AfterViewInit {
   }
 
   onChange = (input: string) => {
-    this.value = input;
+    this.value.set(input)
   };
 
   onKeyPress = (button: string) => {
@@ -78,7 +78,7 @@ export class NewContainerPage implements AfterViewInit {
   };
 
   createContainer() {
-    this.productTestStore.addContainer(this.value)
+    this.productTestStore.addContainer(this.value())
     this.router.navigate(['run-test', 'container'])
   }
 }
