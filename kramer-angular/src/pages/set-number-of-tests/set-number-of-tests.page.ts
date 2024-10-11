@@ -9,19 +9,19 @@ import {RouterLink} from '@angular/router';
     <div class="flex w-screen h-full justify-center">
       <div class="flex flex-col">
         <div class="flex">
-          <app-measurement-card (selected)="selectMeasurement($event)"
+          <app-measurement-card [editMode]="true"
                                 [measurement]="listOfMeasurements()[0]"></app-measurement-card>
-          <app-measurement-card (selected)="selectMeasurement($event)"
+          <app-measurement-card [editMode]="true"
                                 [measurement]="listOfMeasurements()[1]"></app-measurement-card>
         </div>
         <div class="flex">
-          <app-measurement-card (selected)="selectMeasurement($event)"
+          <app-measurement-card [editMode]="true"
                                 [measurement]="listOfMeasurements()[2]"></app-measurement-card>
-          <app-measurement-card (selected)="selectMeasurement($event)"
+          <app-measurement-card [editMode]="true"
                                 [measurement]="listOfMeasurements()[3]"></app-measurement-card>
         </div>
         <div class="flex">
-          <app-measurement-card (selected)="selectMeasurement($event)"
+          <app-measurement-card [editMode]="true"
                                 [measurement]="listOfMeasurements()[4]"></app-measurement-card>
           <app-measurement-card></app-measurement-card>
         </div>
@@ -56,46 +56,32 @@ export class SetNumberOfTestsPage {
       id: '1',
       name: 'Weight',
       unit: 'g',
-      checked: false
+      checked: true
     },
     {
       id: '2',
       name: 'Thickness',
       unit: 'mm',
-      checked: false
+      checked: true
     },
     {
       id: '3',
       name: 'Width',
       unit: 'mm',
-      checked: false
+      checked: true
     },
     {
       id: '4',
       name: 'Height',
       unit: 'mm',
-      checked: false
+      checked: true
     },
     {
       id: '5',
       name: 'Hardness',
       unit: 'N',
-      checked: false
+      checked: true
     }
   ])
 
-  selectMeasurement(id: string) {
-    this.listOfMeasurements.update((data) => {
-      return data.map((item) => {
-        if (item.id === id) {
-          return {
-            ...item,
-            checked: !item.checked
-          }
-        }
-
-        return item;
-      })
-    })
-  }
 }
