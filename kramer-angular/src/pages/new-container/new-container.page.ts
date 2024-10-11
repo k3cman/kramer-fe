@@ -1,14 +1,41 @@
 import {AfterViewInit, Component, ViewEncapsulation} from '@angular/core';
 import Keyboard from "simple-keyboard";
+import {RouterLink} from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'page-new-container',
   encapsulation: ViewEncapsulation.None,
+  imports: [
+    RouterLink
+  ],
   template: `
-    <input (input)="onInputChange($event)" class="input" value={{value}}
-           placeholder="Tap on the virtual keyboard to start"/>
-    <div class="simple-keyboard"></div>
+    <div class="flex flex-col p-1.5 w-full">
+      <div class="flex flex-col w-full mb-2">
+        <span>Container number will be added to test report</span>
+        <div class="flex flex">
+          <div class="border-gray-400 border rounded flex-1">
+            <input class="block w-full h-[30px] !border !border-gray-400 rounded" (input)="onInputChange($event)"
+                   class="input"
+                   value={{value}}
+                   placeholder=""/>
+          </div>
+          <div class="ml-2 w-[30px] bg-gray-400 text-white flex items-center justify-center">X</div>
+        </div>
+      </div>
+      <div class="simple-keyboard"></div>
+      <div class="flex items-center justify-between w-full h-[75px] gap-1">
+        <div class="h-full flex-1 bg-kramer-light"></div>
+        <div class="h-full flex-1 bg-kramer-light"></div>
+        <div class="h-full flex-1 bg-kramer-light"></div>
+        <div class="h-full flex-1 bg-kramer-light"></div>
+        <div class="h-full flex-1 bg-kramer flex items-center justify-center text-white" routerLink="../container">X
+        </div>
+        <div class="h-full flex-1 bg-kramer  flex items-center justify-center text-white" routerLink="../container">OK
+        </div>
+      </div>
+    </div>
+
   `
 })
 export class NewContainerPage implements AfterViewInit {
