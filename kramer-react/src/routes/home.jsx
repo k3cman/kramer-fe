@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
 import { ActionCard } from "../components/action-card";
 import MeasurementCard from "../components/measurement-card";
 import Root from "./root";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+   const navigate = useNavigate()
+
+  const goToProducts = () => {
+   navigate('/products')
+  }
     return (
         <Root>
          <div className="flex w-full h-full justify-center">
@@ -22,14 +27,14 @@ export default function HomePage() {
                   </div>
                </div>
                <div className="flex flex-col">
-                  <Link to="products">
+                  <div onClick={goToProducts} onTouchStart={goToProducts}>
                      <ActionCard />
-                  </Link>
-                  <Link to="products">
+                  </div>
+                  <div onClick={goToProducts} onTouchStart={goToProducts}>
                      <ActionCard />
-                  </Link><Link to="products">
+                  </div><div onClick={goToProducts} onTouchStart={goToProducts}>
                      <ActionCard />
-                  </Link>
+                  </div>
                </div>
          </div>
          

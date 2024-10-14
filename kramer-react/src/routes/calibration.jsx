@@ -1,9 +1,16 @@
 import Root from "./root";
 import MeasurementCard from "../components/measurement-card";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ProducstHook } from "../hooks/products"
 
 export function CalibrationPage(){
+  const navigate = useNavigate()
+  const goHome = () => {
+    navigate('/')
+  }
+  const goToCalibration = () => {
+    navigate('/batch')
+  }
   
   const [product, setProduct] = ProducstHook()
   console.log(product)
@@ -38,12 +45,12 @@ export function CalibrationPage(){
           <p> Do you want to continue anyway?</p>
         </div>
         <div className="flex h-[75px] w-full">
-          <Link className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" to="/">
+          <div className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white"  onClick={goHome} onTouchStart={goHome}>
             X
-          </Link>
-          <Link className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
-               to="/batch">OK
-          </Link>
+          </div>
+          <div className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
+                onClick={goToCalibration} onTouchStart={goToCalibration}>OK
+          </div>
         </div>
       </div>
          </div>

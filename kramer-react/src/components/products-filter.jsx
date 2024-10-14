@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function ProductsFilter () {
+  const navigate = useNavigate()
+  const goHome = () => {
+    navigate('/')
+  }
+  const goToCalibration = () => {
+    navigate('/calibration')
+  }
     return (
     <div className="w-full h-full flex flex-col pt-1.5 pr-1.5 pl-1.5">
       <div className="border-2 border-kramer rounded flex-1 mb-2">
@@ -19,12 +26,12 @@ export function ProductsFilter () {
       </div>
       <div className="flex h-[75px] w-full">
     
-        <Link to="/" className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white">
+        <div className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" onClick={goHome} onTouchStart={goHome}>
           X
-        </Link>
-        <Link className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" to="/calibration">
+        </div>
+        <div className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" onClick={goToCalibration} onTouchStart={goToCalibration}>
         OK
-        </Link>
+        </div>
       </div>
     </div>
     )

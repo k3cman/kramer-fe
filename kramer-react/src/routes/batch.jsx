@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import Root from "./root";
 
 export default function BatchPage () {
+  const navigate = useNavigate()
+  const goHome = () => {
+    navigate('/')
+  }
+  const goToContainers = () => {
+    navigate('/containers')
+  }
     return(
         <Root>
             <div class="w-full h-full flex p-2">
@@ -28,11 +36,13 @@ export default function BatchPage () {
           </div>
         
         <div class="flex h-[75px] w-full">
-          <Link class="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" to="/">
+          <div class="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" onClick={goHome} onTouchStart={goHome}>
             X
-          </Link>
-          <Link to="/containers" class="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white">OK
-          </Link>
+          </div>
+          <div to="/containers" class="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
+             onClick={goToContainers} onTouchStart={goToContainers}
+          >OK
+          </div>
         </div>
       </div>
     </div>

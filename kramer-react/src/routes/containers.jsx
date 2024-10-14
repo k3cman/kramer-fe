@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Root from "./root";
 
 export default function ContainersPage () {
+  const navigate = useNavigate()
+  const goHome = () => {
+    navigate('/')
+  }
+  const goToNumberOfTests = () => {
+    navigate('/number-of-tests')
+  }
     return (
         <Root>
             <div className="w-full h-full flex p-2">
@@ -30,12 +37,12 @@ export default function ContainersPage () {
           <p>Select container number</p>
         </div>
         <div className="flex h-[75px] w-full">
-          <Link className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" to="/">
+          <div className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white"  onClick={goHome} onTouchStart={goHome}>
             X
-          </Link>
-          <Link className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
-               to="/number-of-tests">OK
-          </Link>
+          </div>
+          <div className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white"
+                onClick={goToNumberOfTests} onTouchStart={goToNumberOfTests}>OK
+          </div>
         </div>
       </div>
     </div>
