@@ -1,8 +1,17 @@
 import { Bars3Icon, ComputerDesktopIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LabContext from "../store/lab-context";
 
 export default function Root(props) {
+    const store = {
+        availableProducts: [],
+        selectedProduct: null,
+        availableBatches: [],
+        selectedBatch: null,
+        availableContainers: [],
+        selectedContainer: null,
+      };
     const [showSidebar, setShowSidebar] = useState(false);
     const [currentDate, setCurrentDate] = useState(new Date().toLocaleString());
 
@@ -16,7 +25,7 @@ export default function Root(props) {
         setShowSidebar(!showSidebar)
     }
 
-    return (
+    return (<LabContext.Provider value={store}>
     <div className="w-screen h-screen flex flex-col">
         <div className="h-[60px]">
             <div className="h-full w-screen bg-kramer flex justify-between p-2 items-center">
@@ -43,5 +52,6 @@ export default function Root(props) {
         </div>
         <div className="h-[15px] bg-kramer w-screen"></div>
     </div>
+    </LabContext.Provider>
     )
 }

@@ -1,7 +1,10 @@
 
+import { useContext } from "react";
 import { ProductsFilter } from "../components/products-filter";
 import { ProductsTable } from "../components/products-table";
 import Root from "./root";
+import LabContext from "../store/lab-context";
+import { ProducstHook } from "../hooks/products";
 
 export const products = [
     {

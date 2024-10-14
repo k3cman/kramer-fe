@@ -9,11 +9,11 @@ export function ProductsFilter () {
         <form className="flex flex-col mx-1.5">
           <div className="flex flex-col">
             <label>Product number:</label>
-            <input formControlName="productNo" className="border border-gray-400 rounded" type="text"/>
+            <input className="border border-gray-400 rounded" type="text"/>
           </div>
           <div className="flex flex-col">
             <label>Product name:</label>
-            <input formControlName="productName" className="border border-gray-400 rounded" type="text"/>
+            <input className="border border-gray-400 rounded" type="text"/>
           </div>
         </form>
       </div>

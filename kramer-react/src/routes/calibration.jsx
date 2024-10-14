@@ -1,8 +1,12 @@
 import Root from "./root";
 import MeasurementCard from "../components/measurement-card";
 import { Link } from "react-router-dom";
+import { ProducstHook } from "../hooks/products"
 
 export function CalibrationPage(){
+  
+  const [product, setProduct] = ProducstHook()
+  console.log(product)
     return(
         <Root>
             <div className="flex w-screen h-full justify-center">

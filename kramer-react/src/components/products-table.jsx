@@ -1,4 +1,8 @@
+import { useEffect } from "react"
+import { ProducstHook } from "../hooks/products"
+
 export function ProductsTable({products}){
+  const [product, setProduct] = ProducstHook()
     return (
         <div className="m-1.5 border-2 rounded border-gray-400 h-full">
       <div className="w-full bg-kramer h-[30px]">Product section</div>
@@ -12,7 +16,7 @@ export function ProductsTable({products}){
         <div className="flex flex-col w-full" >
           {
             products.map((product) => (
-                <div className="flex w-full h-[40px]" >
+                <div className="flex w-full h-[40px]" onClick={() => setProduct(product)} key={product.id}>
                     <div className="w-1/2 border-[0.5px] border-t-0 border-kramer">{ product.productNo}</div>
                     <div className="w-1/2 border-[0.5px] border-t-0 border-kramer">{ product.productName }</div>
                 </div>
