@@ -7,7 +7,7 @@ export function ActionCard() {
             TEST
             </div>
             <div className="flex items-center justify-center h-full">
-                <PlayIcon class="h-20 w-20 text-kramer" />
+                <PlayIcon className="h-20 w-20 text-kramer" />
             </div>
         </div>
     )

@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { ActionCard } from "../components/action-card";
 import MeasurementCard from "../components/measurement-card";
+import Root from "./root";
 
 export default function HomePage() {
     return (
-        <>
+        <Root>
          <div className="flex w-screen h-full justify-center">
                <div className="flex flex-col">
                   <div className="flex">
@@ -19,13 +21,18 @@ export default function HomePage() {
                      <MeasurementCard />
                   </div>
                </div>
-               <div class="flex flex-col">
-                  <ActionCard />
-                  <ActionCard />
-                  <ActionCard />
+               <div className="flex flex-col">
+                  <Link to="products">
+                     <ActionCard />
+                  </Link>
+                  <Link to="products">
+                     <ActionCard />
+                  </Link><Link to="products">
+                     <ActionCard />
+                  </Link>
                </div>
          </div>
          
-        </>
+        </Root>
     )
 }

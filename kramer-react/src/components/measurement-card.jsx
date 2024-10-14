@@ -12,6 +12,7 @@ export default function MeasurementCard({measurement}) {
                         </>
                     ) : ''}
                 </div>
+                <span class="text-5xl">0/0</span>
             </div>
             <div className=" w-full h-[40px] flex items-center justify-center bg-gray-300">
             <span
