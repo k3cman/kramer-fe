@@ -6,7 +6,7 @@ import Root from "./root";
 export default function HomePage() {
     return (
         <Root>
-         <div className="flex w-screen h-full justify-center">
+         <div className="flex w-full h-full justify-center">
                <div className="flex flex-col">
                   <div className="flex">
                      <MeasurementCard measurement={{name: 'Weight', unit: 'g'}} />
