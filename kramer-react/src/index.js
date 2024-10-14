@@ -5,6 +5,10 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./routes/home";
 import { ProductsPage } from "./routes/products";
+import { CalibrationPage } from "./routes/calibration";
+import BatchPage from "./routes/batch";
+import ContainersPage from "./routes/containers";
+import NumberOfTests from "./routes/number-of-tests";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +18,22 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element: <ProductsPage />,
+  },
+  {
+    path: "/calibration",
+    element: <CalibrationPage />,
+  },
+  {
+    path: "/batch",
+    element: <BatchPage />,
+  },
+  {
+    path: "containers",
+    element: <ContainersPage />,
+  },
+  {
+    path: "number-of-tests",
+    element: <NumberOfTests />,
   },
 ]);
 

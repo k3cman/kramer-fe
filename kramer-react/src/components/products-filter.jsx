@@ -22,7 +22,7 @@ export function ProductsFilter () {
         <Link to="/" className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white">
           X
         </Link>
-        <Link className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" to="/run-test/calibration">
+        <Link className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" to="/calibration">
         OK
         </Link>
       </div>
