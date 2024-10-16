@@ -27,14 +27,14 @@ export default function HomePage() {
                   </div>
                </div>
                <div className="flex flex-col">
-                  <div onClick={goToProducts} onTouchStart={goToProducts}>
+                  <a onClick={goToProducts} onTouchStart={goToProducts}>
                      <ActionCard />
-                  </div>
-                  <div onClick={goToProducts} onTouchStart={goToProducts}>
+                  </a>
+                  <a onClick={goToProducts} onTouchStart={goToProducts}>
                      <ActionCard />
-                  </div><div onClick={goToProducts} onTouchStart={goToProducts}>
+                  </a><a onClick={goToProducts} onTouchStart={goToProducts}>
                      <ActionCard />
-                  </div>
+                  </a>
                </div>
          </div>
          

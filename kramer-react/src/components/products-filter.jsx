@@ -26,12 +26,12 @@ export function ProductsFilter () {
       </div>
       <div className="flex h-[75px] w-full">
     
-        <div className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" onClick={goHome} onTouchStart={goHome}>
+        <a className="flex items-center justify-center bg-kramer w-1/2 mr-2 text-2xl text-white" onClick={goHome} onTouchStart={goHome}>
           X
-        </div>
-        <div className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" onClick={goToCalibration} onTouchStart={goToCalibration}>
+        </a>
+        <a className="flex items-center justify-center bg-kramer w-1/2 text-2xl text-white" onClick={goToCalibration} onTouchStart={goToCalibration}>
         OK
-        </div>
+        </a>
       </div>
     </div>
     )
